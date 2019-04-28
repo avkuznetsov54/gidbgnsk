@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Подрядчики
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-9">
+            <h1 class="mt-5 mb-5">Подрядчики</h1>
+        </div>
+        <div class="col-3">
+            <h4 class="mt-5 mb-5">Объектов: <span class="badge badge-info">{{ count_contract_orgs }}</span></h4>
+        </div>
+
+            {% for c_org in contract_orgs %}
+
+
+
+            {% endfor %}
+
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Номер 1С</th>
+              <th>Комнат</th>
+              <th>Улица</th>
+              <th>Номер дома</th>
+              <th>Район</th>
+              <th>Этаж</th>
+              <th>Этажность</th>
+              <th>Материал стен</th>
+              <th>Тип квартиры</th>
+              <th>Общая площадь</th>
+              <th>Жилая площадь</th>
+              <th>Площадь кухни</th>
+              <th>Стоимость</th>
+              <th>Номер квартиры</th>
+              <th>Застройщик</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          {% if contract_orgs %}
+            {% for c_org in contract_orgs %}
+                    <tr>
+
+                      <td>{{c_org.number_1c}}</td>
+                      <td>{{c_org.rooms|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.street|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.num_house|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.district|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.floor|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.num_of_floors|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.house_material|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.type_flat|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.all_square|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.living_square|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.kitchen_square|default_if_none:"&nbsp;"}}</td>
+                      <td>{{c_org.price|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.num_flat|default_if_none:"&nbsp;" }}</td>
+                      <td>{{c_org.developer|default_if_none:"&nbsp;" }}</td>
+
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+          </tbody>
+        </table>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

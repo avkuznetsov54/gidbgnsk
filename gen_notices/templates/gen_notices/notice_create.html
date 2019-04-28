@@ -1,0 +1,261 @@
+<div class="modal-header">
+<h5 class="modal-title" >Create Notice</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+
+<form method="POST" enctype="multipart/form-data" data-url="{% url 'gen_notice:notice_create' %}" class="create-form">
+
+    <div class="wr-form">
+
+    {% csrf_token %}
+
+        <input type="hidden" name="notice_templ" value="{{ notice_templ }}">
+
+        <input type="hidden" name="{{ form.developer.name }}" placeholder="Застройщик" class="form-control" required="" value="{{ data_obj_dev_name }}">
+        <input type="hidden" name="{{ form.jk_object.name }}" placeholder="Жилой Комплекс" class="form-control" required="" value="{{ data_object_name }}">
+        <input type="hidden" name="emails_developer" placeholder="Email(s) застройщика" class="form-control" required="" value="{{ notice_templ.emails_developer }}">
+
+        <p>
+        <a href="{{ MEDIA_URL }}{{ notice_templ.file_null_notice }}" class="btn btn-outline-success">
+            Скачать пустое
+        </a>
+        </p>
+
+        {% if notice_templ.office_is_active == True %}
+        <!--<label for="">Выбирете свой офис</label>-->
+            <select name="{{ form.office.name }}" class="form-control js-example-basic-single" required="" style="margin-bottom: 10px">
+              <option value="" selected="">Выберите свой офис</option>
+                {% for of in form.office.field.queryset %}
+                     <option value="{{of.id}}">{{of.office}}</option>
+                {% endfor%}
+            </select>
+        {% endif %}
+
+        <input type="text" name="{{ form.fio_client.name }}" placeholder="ФИО клиента" class="form-control" required="" value="">
+        <input type="text" name="{{ form.phone_client.name }}" placeholder="Телефон клиента" class="form-control" required="" value="">
+
+        <input type="text" name="{{ form.fio_agent.name }}" placeholder="ФИО агента" class="form-control" required="" value="{{ user.userprofile.full_name }}">
+        <input type="text" name="{{ form.phone_agent.name }}" placeholder="Телефон агента" class="form-control" required="" value="{{ user.userprofile.phone_number }}">
+        <input type="text" name="{{ form.email_agent.name }}" placeholder="Email агента" class="form-control" required="" value="{{ user.email }}">
+
+        {% if notice_templ.sum_of_rooms_is_active == True %}
+            <input type="text" name="{{ form.sum_of_rooms.name }}" placeholder="Кол-во комнат" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.apartment_number_is_active == True %}
+            <input type="text" name="{{ form.apartment_number.name }}" placeholder="Номер квартиры" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.floor_is_active == True %}
+            <input type="text" name="{{ form.floor.name }}" placeholder="Этаж" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.square_is_active == True %}
+            <input type="text" name="{{ form.square.name }}" placeholder="Площадь квартиры" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.address_object_is_active == True %}
+            <input type="text" name="{{ form.address_object.name }}" placeholder="Адрес дома" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.number_object_is_active == True %}
+            <input type="text" name="{{ form.number_object.name }}" placeholder="Номер дома" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.section_object_is_active == True %}
+            <input type="text" name="{{ form.section_object.name }}" placeholder="Секция" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.price_is_active == True %}
+            <input type="text" name="{{ form.price.name }}" placeholder="Стоимость квартиры" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.price_m_is_active == True %}
+            <input type="text" name="{{ form.price_m.name }}" placeholder="Стоимость за 1 кв.м." class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.client_passport_details_is_active == True %}
+            <input type="text" name="{{ form.client_passport_details.name }}" placeholder="Паспортные данные клиента" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.place_of_residence_is_active == True %}
+            <input type="text" name="{{ form.place_of_residence.name }}" placeholder="Адрес прописки" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.form_of_payment_is_active == True %}
+            <input type="text" name="{{ form.form_of_payment.name }}" placeholder="Форма расчёта" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.consult_date_is_active == True %}
+            <input type="text" name="{{ form.consult_date.name }}" placeholder="Дата консультации" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.consult_time_is_active == True %}
+            <input type="text" name="{{ form.consult_time.name }}" placeholder="Время консультации" class="form-control" required="" value="">
+        {% endif %}
+        {% if notice_templ.manager_select_is_active == True %}
+            <input type="text" name="{{ form.manager_select.name }}" placeholder="Выбор менеджера" class="form-control" required="" value="">
+        {% endif %}
+
+        <input type="file" name="attach">
+
+        {% if notice_templ.type_for_lawyer_is_active == True %}
+            <p>
+                <input name="{{ form.type_for_lawyer.name }}" type="radio" value="наличные" required="">Наличный
+                <input name="{{ form.type_for_lawyer.name }}" type="radio" value="ипотека">Ипотека
+            </p>
+        {% endif %}
+        {% if notice_templ.type_for_notice_choice == 'uvedd_bronn' %}
+            <p>
+                <input name="{{ form.type_for_notice.name }}" type="radio" value="уведомление" required="">Уведомление
+                <input name="{{ form.type_for_notice.name }}" type="radio" value="бронирование">Бронирование
+            </p>
+        {% elif notice_templ.type_for_notice_choice == 'uvedd' %}
+            <input type="hidden" name="{{ form.type_for_notice.name }}" required="" value="уведомление">
+        {% elif notice_templ.type_for_notice_choice == 'bronn' %}
+            <input type="hidden" name="{{ form.type_for_notice.name }}" required="" value="бронирование">
+        {% endif %}
+
+
+        <textarea name="email_message" cols="40" rows="10" placeholder="Email body" class="form-control" style="height:120px!important" required="">{{ email_message }}</textarea>
+
+        <button type="submit" class="btn btn-primary form-btn-send">Отправить</button>
+    </div>
+
+    <div class="anim-process-send" style="display:none;">
+        <!-- Loader 7 -->
+
+        <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+         <path fill="#e4e4e4" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+          c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+              <animateTransform
+                 attributeName="transform"
+                 attributeType="XML"
+                 type="rotate"
+                 dur="2s"
+                 from="0 50 50"
+                 to="360 50 50"
+                 repeatCount="indefinite" />
+          </path>
+         <path fill="#e4e4e4" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+          c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+              <animateTransform
+                 attributeName="transform"
+                 attributeType="XML"
+                 type="rotate"
+                 dur="1s"
+                 from="0 50 50"
+                 to="-360 50 50"
+                 repeatCount="indefinite" />
+          </path>
+         <path fill="#e4e4e4" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+          L82,35.7z">
+              <animateTransform
+                 attributeName="transform"
+                 attributeType="XML"
+                 type="rotate"
+                 dur="2s"
+                 from="0 50 50"
+                 to="360 50 50"
+                 repeatCount="indefinite" />
+          </path>
+        </svg>
+    </div>
+    <div class="anim-process-done" style="display:none;">
+        <div class="svg-container">
+            <svg class="ft-green-tick" xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 48 48" aria-hidden="true">
+                <circle class="circle" fill="#5bb543" cx="24" cy="24" r="22"/>
+                <path class="tick" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14 27l5.917 4.917L34 17"/>
+            </svg>
+        </div>
+    </div>
+    <div class="text-center response-form"></div>
+
+</form>
+
+</div>
+<!--<div class="modal-footer">-->
+
+<!--</div>-->
+
+
+</div>
+<style>
+    .anim-process-send, .anim-process-done {
+        text-align: center;
+    }
+
+    svg { -webkit-background-clip: text; }
+
+    .anim-process-send svg{
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      display:inline-block;
+    }
+
+    /**/
+    .anim-process-done .tick {
+    stroke-dasharray: 29px;
+    stroke-dashoffset: 29px;
+    -webkit-animation: draw .5s cubic-bezier(.25, .25, .25, 1) forwards;
+            animation: draw .5s cubic-bezier(.25, .25, .25, 1) forwards;
+    -webkit-animation-delay: .6s;
+            animation-delay: .6s
+    }
+
+    .anim-process-done .circle {
+        fill-opacity: 0;
+        stroke: #219a00;
+        stroke-width: 16px;
+        -webkit-transform-origin: center;
+            -ms-transform-origin: center;
+                transform-origin: center;
+        -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+                transform: scale(0);
+        -webkit-animation: grow 1s cubic-bezier(.25, .25, .25, 1.25) forwards;
+                animation: grow 1s cubic-bezier(.25, .25, .25, 1.25) forwards;
+    }
+
+    @-webkit-keyframes grow {
+        60% {
+            -webkit-transform: scale(.8);
+                    transform: scale(.8);
+            stroke-width: 4px;
+            fill-opacity: 0;
+        }
+        100% {
+            -webkit-transform: scale(.9);
+                    transform: scale(.9);
+            stroke-width: 8px;
+            fill-opacity: 1;
+            fill: #219a00;
+        }
+    }
+
+    @keyframes grow {
+        60% {
+            -webkit-transform: scale(.8);
+                    transform: scale(.8);
+            stroke-width: 4px;
+            fill-opacity: 0;
+        }
+        100% {
+            -webkit-transform: scale(.9);
+                    transform: scale(.9);
+            stroke-width: 8px;
+            fill-opacity: 1;
+            fill: #219a00;
+        }
+    }
+
+    @-webkit-keyframes draw {
+        100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes draw {
+        100% { stroke-dashoffset: 0; }
+    }
+</style>
+
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2({
+        placeholder: "Выберите свой офис",
+        minimumResultsForSearch: Infinity
+    });
+
+});
+</script>

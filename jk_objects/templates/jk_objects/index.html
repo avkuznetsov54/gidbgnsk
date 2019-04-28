@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Жилые Комплексы
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-9">
+            <h1 class="mt-5 mb-5">Новостройки</h1>
+        </div>
+        <div class="col-3">
+            <h4 class="mt-5 mb-5">Объектов в базе: <span class="badge badge-info">{{ count_jkobjects }}</span></h4>
+        </div>
+        <div class="col-12 mb-4">
+            <div class="panel-main">
+            <form class="search-panel form-inline my-2 my-lg-0" action="{% url 'jk_objects:jkobjects_index_url' %}">
+              <!--<input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name="search">-->
+              <!--<input class="form-control mr-sm-2" type="search" placeholder="Body" aria-label="Search" name="search2">-->
+
+                <select name="search" class="search-multiple js-example-basic-multiple" multiple="multiple">
+                    <!--<option value="" selected=""></option>-->
+                    {% for jk in jkobjects %}
+                         <option value="{{ jk.name }}">{{ jk.name }}</option>
+                    {% endfor%}
+                </select>
+                <select name="classbuilding" class="search-multiple js-example-basic-multiple" multiple="multiple">
+                    <!--<option value="" selected=""></option>-->
+                    {% for class in classbuilding %}
+                         <option value="{{ class.id }}">{{ class.name }}</option>
+                    {% endfor%}
+                </select>
+
+              <!--<input class="form-control mr-sm-2" type="search" placeholder="Region" aria-label="Search" name="search3">-->
+              <!--<input class="form-control mr-sm-2" type="search" placeholder="price_ot" aria-label="Search" name="search4">-->
+              <!--<input class="form-control mr-sm-2" type="search" placeholder="price_do" aria-label="Search" name="search5">-->
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+
+            {% for jkobject in page_object.object_list %}
+
+                {% include 'jk_objects/includes/jk_card_template.html' %}
+
+            {% endfor %}
+
+        {% if is_paginated %}
+            <div class="col-12">
+                <nav aria-label="...">
+                      <ul class="pagination">
+
+                        <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                          <a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                            {% for n in page_object.paginator.page_range %}
+                                {% if page_object.number == n %}
+                                    <li class="page-item active" aria-current="page">
+                                      <a class="page-link" href="?page={{ n }}">{{ n }} <span class="sr-only">(current)</span></a>
+                                    </li>
+                                {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        <li class="page-item {% if not next_url %} disabled {% endif %}">
+                          <a class="page-link" href="{{ next_url }}" tabindex="-1" aria-disabled="true">Next</a>
+                        </li>
+                      </ul>
+                </nav>
+            </div>
+        {% endif %}
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

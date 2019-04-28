@@ -1,0 +1,100 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link href="{% static 'css/select2.min.css' %}" rel="stylesheet" />-->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+
+    <title>Вход</title>
+  </head>
+  <body>
+
+
+
+    <!--<div class="container">-->
+
+        <!--<h1 class="display-4">Войти в систему</h1>-->
+        <!--<div class="row mx-auto">-->
+            <!--<div class='col-md-6'>-->
+
+                <!--<form action="" method="post">-->
+
+                    <!--{% if form.non_field_errors %}-->
+                    <!--{% for error in form.non_field_errors %}-->
+                        <!--<div class="alert alert-danger" role="alert">-->
+                            <!--<strong>{{ error }}</strong>-->
+                        <!--</div>-->
+                    <!--{% endfor %}-->
+                    <!--{% endif %}-->
+
+
+
+                    <!--{% csrf_token %}-->
+
+                    <!--<input type="text" name="username" value="" class="form-control" required="" id="id_username">-->
+                    <!--<input type="password" name="password" class="form-control" required="" id="id_password">-->
+
+                    <!--<input type="submit" value="Войти">-->
+                    <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <form class="login__form" method="POST" name="frm_login" action="#">
+        {% csrf_token %}
+       <!--<header class="login__header">-->
+          <!--<h1 class="login__title">Login</h1>-->
+       <!--</header>-->
+
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                <strong>{{ error }}</strong>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+
+       <main class="login__main">
+          <div class="login__group">
+             <input class="login__input" type="text" name="username" required>
+             <label class="login__label">Login </label>
+             <div class="login__bar"></div>
+          </div>
+          <div class="login__group">
+             <input class="login__input" type="password" name="password" required>
+             <label class="login__label">Password </label>
+             <div class="login__bar"></div>
+          </div>
+       </main>
+       <footer class="login__footer">
+         <input class="login__button" type="submit" name="btn_signin" value="Войти">
+       </footer>
+    </form>
+
+
+
+
+
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>-->
+    <!--<script src="{% static 'js/select2.min.js' %}"></script>-->
+
+    <!--<script src="{% static 'js/main.js' %}"></script>-->
+    <!--<script type="text/javascript" src="{% static 'js/test_crudajax.js' %}"></script>-->
+
+  </body>
+</html>

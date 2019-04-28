@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.name }}
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-2">
+        <div class="col-md-5">
+            <h1 class="">{{ object.name }}</h1>
+            <div class="mb-2">{{ object.district }}</div>
+
+        </div>
+        <div class="col-md-7">
+
+            {% if object.forma_1 %}
+                {% for notice_template in notice_templates %}
+                    {% if notice_template.nick_name == object.forma_1 %}
+
+                <button class="btn btn-primary show-form"
+                        data-toggle="modal"
+                        data-notice-name="{{ notice_template.nick_name }}"
+                        data-object-name="{{ object.name }}"
+                        data-obj-dev-name="{{ object.developer }}"
+                        data-target="#forma_1">
+                  Форма 1
+                </button>
+
+                <div class="modal fade modal-notice" id="forma_1" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+
+                      </div>
+                    </div>
+                </div>
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if object.forma_2 %}
+                {% for notice_template in notice_templates %}
+                    {% if notice_template.nick_name == object.forma_2 %}
+
+                <button class="btn btn-primary show-form"
+                        data-toggle="modal"
+                        data-notice-name="{{ notice_template.nick_name }}"
+                        data-object-name="{{ object.name }}"
+                        data-obj-dev-name="{{ object.developer }}"
+                        data-target="#forma_2">
+                  Форма 2
+                </button>
+
+                <div class="modal fade modal-notice" id="forma_2" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+
+                      </div>
+                    </div>
+                </div>
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="img-building" style="background-image:  url({% if object.image %}'{{ MEDIA_URL }}{{ object.image }}'{% else %}'/media/def/none-foto-light.png'{% endif %});">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <p>{{ object.developer }}</p>
+            <p>{{ object.address }}</p>
+            <p>{{ object.class_building }}</p>
+            <p>{{ object.contact_info }}</p>
+            <p>{{ object.regulations_files_info }}</p>
+            <p>{{ object.procent_info }}</p>
+            <a href="{{ object.site_develop }}" target="_blank"><span class="badge badge-info">сайт застройщика</span></a>
+            <p>{{ object.coordinates }}</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Адрес</th>
+              <th scope="col">Срок сдачи</th>
+              <th scope="col">Этажность</th>
+              <th scope="col">Материал дома</th>
+              <th scope="col">Отделка</th>
+              <th scope="col">Способ оплаты</th>
+              <th scope="col">Аккредитация банками</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          {% if house_objects %}
+            {% for house_object in house_objects %}
+                   {% if house_object.jk_object.name == object.name %}
+                    <tr>
+                      <td>{{house_object.address}}</td>
+                      <td>{{house_object.deadline}}</td>
+                      <td>{{house_object.floors}}</td>
+                      <td>{{house_object.house_material}}</td>
+
+                      <td>
+                          {% for finishing in house_object.finishing_flat.all.values %}
+                              {{finishing.name}}
+                          {% endfor %}
+
+                      </td>
+
+                      <td>
+                          {% for payment in house_object.payment_method.all.values %}
+                              {{payment.name}},
+                          {% endfor %}
+                      </td>
+
+                      <td>
+                          {% for bank in house_object.banks.all.values %}
+                              {{bank.name}},
+                          {% endfor %}
+                      </td>
+
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+          </tbody>
+        </table>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}

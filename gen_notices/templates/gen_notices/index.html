@@ -1,0 +1,12 @@
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+        <input type="hidden" name="{{ notice_form.developer.name }}" placeholder="Застройщик" class="form-control" required="" id="id_developer" value="{{ object.name }}">
+
+        {{ notice_form.email_agent }}
+        {{ notice_form.sum_of_rooms }}
+
+
+
+    <button type="submit" class="submit btn btn-success">Добавить</button>
+</form>

@@ -1,0 +1,43 @@
+
+
+.card-jk {
+    width: 300px;
+    height: 500px;
+
+}
+.card-img-building {
+
+    min-height: 250px;
+    background-size: cover;
+    background-position: center center;
+    /*background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .7));*/
+    background-repeat: no-repeat;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-building-overlay {
+    position: absolute;
+    /* top: 0; */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 7px 10px;
+    background-color: rgba(0, 0, 0, 0.31);
+}
+
+/*.card-building-overlay div {*/
+    /*display: inline-block;*/
+
+/*}*/
+
+.img-building {
+    width: 507px;
+    height: 340px;
+    border: none;
+    background-size: cover;
+    background-position: center center;
+}
+
+.wr-form input {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,42 @@
+
+
+{% if jkobject.is_active == True %}
+
+
+<div class="col-4">
+
+    <a class="card-jk" href="{% url 'jk_objects:detail' pk=jkobject.pk %}">
+
+
+
+            <div class="card text-white mb-5">
+                <div class="card-img-building" style="background-image:  url({% if jkobject.image %}'{{ MEDIA_URL }}{{ jkobject.image }}'{% else %}'/media/def/none-foto-dark.png'{% endif %});">
+
+
+              <div class="card-building-overlay">
+                  <div>
+                        <h6 class="card-text">{{ jkobject.developer }}</h6>
+                        <h3 class="card-title">{{ jkobject.name }}</h3>
+
+                  </div>
+                  <div>
+                        <span class="card-text">{{ jkobject.district.subname }}</span>
+                        <span class="float-right card-text">{{ jkobject.class_building }}</span>
+                  </div>
+
+
+              </div>
+            </div>
+
+
+        </div>
+
+
+    </a>
+
+
+
+</div>
+
+
+{% endif %}

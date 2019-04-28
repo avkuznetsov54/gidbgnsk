@@ -1,0 +1,56 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter_forma_1">
+  Форма 1
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter_forma_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle_forma_1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle_forma_1">{{ object.forma_1 }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+{% for notice_template in notice_templates %}
+    {% if notice_template.nick_name == object.forma_1 %}
+
+          {{message}}
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                <input type="hidden" name="{{ notice_form.developer.name }}" placeholder="Застройщик" class="form-control" required="" id="id_developer" value="{{ object.name }}">
+
+                {{ notice_form.email_agent }}
+
+            {% if notice_template.office_is_active == True %}
+                {{ notice_form.office }}
+            {% endif %}
+
+
+                {{ notice_form.sum_of_rooms }}
+
+
+
+            <button type="submit" class="submit btn btn-success">Добавить</button>
+        </form>
+
+
+    {% endif %}
+{% endfor %}
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

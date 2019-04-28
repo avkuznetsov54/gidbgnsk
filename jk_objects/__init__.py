@@ -1,0 +1,1 @@
+default_app_config = 'jk_objects.apps.JkObjectsConfig'

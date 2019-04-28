@@ -1,0 +1,648 @@
+[
+{
+    "model": "jk_objects.district",
+    "pk": 2,
+    "fields": {
+        "name": "\u041f\u0435\u0440\u0432\u043e\u043c\u0430\u0439\u0441\u043a\u0438\u0439",
+        "subname": "\u041f\u0420\u0412"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 3,
+    "fields": {
+        "name": "\u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u044b\u0439",
+        "subname": "\u0426\u0415\u041d"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 4,
+    "fields": {
+        "name": "\u0421\u043e\u0432\u0435\u0442\u0441\u043a\u0438\u0439",
+        "subname": "\u0421\u041e\u0412"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 6,
+    "fields": {
+        "name": "\u041a\u0430\u043b\u0438\u043d\u0438\u043d\u0441\u043a\u0438\u0439",
+        "subname": "\u041a\u041b\u041d"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 7,
+    "fields": {
+        "name": "\u0416\u0435\u043b\u0435\u0437\u043d\u043e\u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0439",
+        "subname": "\u0416\u0415\u041b"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 9,
+    "fields": {
+        "name": "\u041d\u0421\u041e",
+        "subname": "\u041d\u0421\u041e"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 10,
+    "fields": {
+        "name": "\u041b\u0435\u043d\u0435\u043d\u0441\u043a\u0438\u0439",
+        "subname": "\u041b\u0415\u041d"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 11,
+    "fields": {
+        "name": "\u0417\u0430\u0435\u043b\u044c\u0446\u043e\u0432\u0441\u043a\u0438\u0439",
+        "subname": "\u0417\u041b\u0426"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 12,
+    "fields": {
+        "name": "\u041a\u0438\u0440\u043e\u0432\u0441\u043a\u0438\u0439",
+        "subname": "\u041a\u0418\u0420"
+    }
+},
+{
+    "model": "jk_objects.district",
+    "pk": 13,
+    "fields": {
+        "name": "\u0414\u0437\u0435\u0440\u0436\u0438\u043d\u0441\u043a\u0438\u0439",
+        "subname": "\u0414\u0417\u0415"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 1,
+    "fields": {
+        "name": "\u0421\u0434\u0430\u043d"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 2,
+    "fields": {
+        "name": "I 2019"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 3,
+    "fields": {
+        "name": "II 2019"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 4,
+    "fields": {
+        "name": "III 2019"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 5,
+    "fields": {
+        "name": "IV 2019"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 6,
+    "fields": {
+        "name": "I 2020"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 7,
+    "fields": {
+        "name": "II 2020"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 8,
+    "fields": {
+        "name": "III 2020"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 9,
+    "fields": {
+        "name": "IV 2020"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 10,
+    "fields": {
+        "name": "I 2021"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 11,
+    "fields": {
+        "name": "II 2021"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 12,
+    "fields": {
+        "name": "III 2021"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 13,
+    "fields": {
+        "name": "IV 2021"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 14,
+    "fields": {
+        "name": "I 2022"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 15,
+    "fields": {
+        "name": "II 2022"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 16,
+    "fields": {
+        "name": "III 2022"
+    }
+},
+{
+    "model": "jk_objects.deadlinebuilding",
+    "pk": 17,
+    "fields": {
+        "name": "IV 2022"
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 1,
+    "fields": {
+        "name": "\u041e\u041e\u041e \"\u0421\u0438\u0431\u0438\u0440\u044c \u0414\u0435\u0432\u0435\u043b\u043e\u043f\u043c\u0435\u043d\u0442\""
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 2,
+    "fields": {
+        "name": "\u041e\u041e\u041e \"\u041a\u0432\u0430\u0434\u0440\u0430\u0442\u043d\u044b\u0439 \u041c\u042d\u0422\u0420\""
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 3,
+    "fields": {
+        "name": "\u0417\u0410\u041e \"\u0422\u0420\u0423\u0414\""
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 4,
+    "fields": {
+        "name": "D54"
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 5,
+    "fields": {
+        "name": "\u041e\u041e\u041e \"\u0410\u041a\u0412\u0410 \u0421\u0418\u0422\u0418\""
+    }
+},
+{
+    "model": "jk_objects.developer",
+    "pk": 6,
+    "fields": {
+        "name": "\u0412\u0418\u0420\u0410-\u0421\u0422\u0420\u041e\u0419"
+    }
+},
+{
+    "model": "jk_objects.housematerial",
+    "pk": 1,
+    "fields": {
+        "name": "\u041c\u043e\u043d\u043e\u043b\u0438\u0442 + \u043a\u0438\u0440\u043f\u0438\u0447"
+    }
+},
+{
+    "model": "jk_objects.housematerial",
+    "pk": 2,
+    "fields": {
+        "name": "\u041a\u0438\u0440\u043f\u0438\u0447"
+    }
+},
+{
+    "model": "jk_objects.housematerial",
+    "pk": 3,
+    "fields": {
+        "name": "\u041f\u0430\u043d\u0435\u043b\u044c"
+    }
+},
+{
+    "model": "jk_objects.housematerial",
+    "pk": 4,
+    "fields": {
+        "name": "\u041c\u043e\u043d\u043e\u043b\u0438\u0442\u043d\u044b\u0435 \u043f\u0430\u043d\u0435\u043b\u0438"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 1,
+    "fields": {
+        "name": "\u041d\u0430\u043b\u0438\u0447\u043d\u044b\u0435"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 2,
+    "fields": {
+        "name": "\u0418\u043f\u043e\u0442\u0435\u043a\u0430"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 3,
+    "fields": {
+        "name": "\u0412\u043e\u0435\u043d\u043d\u0430\u044f \u0438\u043f\u043e\u0442\u0435\u043a\u0430"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 4,
+    "fields": {
+        "name": "\u041c\u0430\u0442. \u043a\u0430\u043f\u0438\u0442\u0430\u043b"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 5,
+    "fields": {
+        "name": "\u0420\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430"
+    }
+},
+{
+    "model": "jk_objects.payment\u043cethod",
+    "pk": 6,
+    "fields": {
+        "name": "\u0418\u043f\u043e\u0442\u0435\u043a\u0430 \u0431\u0435\u0437 \u041f.\u0412."
+    }
+},
+{
+    "model": "jk_objects.bank",
+    "pk": 1,
+    "fields": {
+        "name": "\u0412\u0422\u041124"
+    }
+},
+{
+    "model": "jk_objects.bank",
+    "pk": 2,
+    "fields": {
+        "name": "\u0421\u0431\u0435\u0440\u0411\u0430\u043d\u043a"
+    }
+},
+{
+    "model": "jk_objects.bank",
+    "pk": 3,
+    "fields": {
+        "name": "\u041b\u0435\u0432\u043e\u0431\u0435\u0440\u0435\u0436\u043d\u044b\u0439"
+    }
+},
+{
+    "model": "jk_objects.bank",
+    "pk": 4,
+    "fields": {
+        "name": "\u0413\u0430\u0437\u041f\u0440\u043e\u043c\u0411\u0430\u043d\u043a"
+    }
+},
+{
+    "model": "jk_objects.classbuilding",
+    "pk": 1,
+    "fields": {
+        "name": "\u042d\u043a\u043e\u043d\u043e\u043c"
+    }
+},
+{
+    "model": "jk_objects.classbuilding",
+    "pk": 2,
+    "fields": {
+        "name": "\u041a\u043e\u043c\u0444\u043e\u0440\u0442"
+    }
+},
+{
+    "model": "jk_objects.classbuilding",
+    "pk": 3,
+    "fields": {
+        "name": "\u0411\u0438\u0437\u043d\u0435\u0441"
+    }
+},
+{
+    "model": "jk_objects.classbuilding",
+    "pk": 4,
+    "fields": {
+        "name": "\u0414\u043e\u043c\u0430 - \u041a\u043e\u0442\u0442\u0435\u0434\u0436\u0438"
+    }
+},
+{
+    "model": "jk_objects.finishingflat",
+    "pk": 1,
+    "fields": {
+        "name": "\u0427\u0438\u0441\u0442\u043e\u0432\u0430\u044f"
+    }
+},
+{
+    "model": "jk_objects.finishingflat",
+    "pk": 2,
+    "fields": {
+        "name": "\u0427\u0435\u0440\u043d\u043e\u0432\u0430\u044f"
+    }
+},
+{
+    "model": "jk_objects.finishingflat",
+    "pk": 3,
+    "fields": {
+        "name": "\u041f\u043e\u0434 \u043a\u043b\u044e\u0447"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 2,
+    "fields": {
+        "name": "\u0416\u041a \u0422\u043d\u0441\u0442",
+        "developer": 2,
+        "district": 9,
+        "address": null,
+        "class_building": 4,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": null,
+        "coordinates": null,
+        "image": ""
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 3,
+    "fields": {
+        "name": "\u0416\u041a \u0413\u0420\u0410\u041d\u0418",
+        "developer": 3,
+        "district": 7,
+        "address": null,
+        "class_building": 2,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": null,
+        "regulations_files_info": null,
+        "procent_info": null,
+        "site_develop": null,
+        "coordinates": null,
+        "image": "jkobject_images/_2.jpg"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 4,
+    "fields": {
+        "name": "VIVANOVA",
+        "developer": 4,
+        "district": 4,
+        "address": null,
+        "class_building": 2,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": null,
+        "coordinates": null,
+        "image": "jkobject_images/D0B7D18BD180.jpg_dWynJSa.jpeg"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 5,
+    "fields": {
+        "name": "\u0416\u041a \u0417\u0430\u0435\u043b\u044c\u0446\u043e\u0432\u0441\u043a\u0438\u0439",
+        "developer": 1,
+        "district": 11,
+        "address": null,
+        "class_building": 2,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": null,
+        "coordinates": null,
+        "image": "jkobject_images/2f001a0e7d7b5a174498420246451a3b.jpg.jpeg"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 6,
+    "fields": {
+        "name": "\u0416\u041a \u042f\u0441\u043d\u044b\u0439 \u0411\u0435\u0440\u0435\u0433",
+        "developer": 5,
+        "district": 10,
+        "address": null,
+        "class_building": 2,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "\u041e\u0442\u0434\u0435\u043b \u043f\u0440\u043e\u0434\u0430\u0436:\r\n\u0427\u0443\u043b\u044b\u043c\u0441\u043a\u0430\u044f 112/3",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": null,
+        "coordinates": null,
+        "image": "jkobject_images/architecture04.jpg.jpeg"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 7,
+    "fields": {
+        "name": "\u0416\u041a \u041c\u0430\u0442\u0440\u0451\u0448\u043a\u0438\u043d \u0414\u0432\u043e\u0440",
+        "developer": 6,
+        "district": 12,
+        "address": "\u041f\u0435\u0442\u0443\u0445\u043e\u0432\u0430 95/4 \u0441\u0442\u0440",
+        "class_building": 1,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": null,
+        "coordinates": null,
+        "image": "jkobject_images/D0BCD0B0D182D180.jpg.jpeg"
+    }
+},
+{
+    "model": "jk_objects.jkobject",
+    "pk": 8,
+    "fields": {
+        "name": "\u0416\u041a \u0421\u0432\u043e\u0431\u043e\u0434\u0430",
+        "developer": 6,
+        "district": 13,
+        "address": "\u0417\u0430\u0441\u043b\u043e\u043d\u043e\u0432\u0430 2",
+        "class_building": 1,
+        "forma_1": null,
+        "forma_2": null,
+        "forma_3": null,
+        "contact_info": "",
+        "regulations_files_info": "",
+        "procent_info": "",
+        "site_develop": "http://www.vira-stroy.ru/",
+        "coordinates": null,
+        "image": "jkobject_images/D181D0B2D0BED0B1.jpg.jpeg"
+    }
+},
+{
+    "model": "jk_objects.houseofobject",
+    "pk": 1,
+    "fields": {
+        "jk_object": 6,
+        "address": "\u0427\u0443\u043b\u044b\u043c\u0441\u043a\u0430\u044f 1-\u044f 112/3 (\u0434\u043e\u043c 2)",
+        "deadline": 1,
+        "floors": "26",
+        "house_material": 1,
+        "finishing_flat": [
+            2,
+            1
+        ],
+        "payment_method": [
+            3,
+            2,
+            6,
+            4,
+            1,
+            5
+        ],
+        "banks": [
+            1,
+            4
+        ]
+    }
+},
+{
+    "model": "jk_objects.houseofobject",
+    "pk": 2,
+    "fields": {
+        "jk_object": 6,
+        "address": "\u042f\u0441\u043d\u044b\u0439 \u0431\u0435\u0440\u0435\u0433 10 (\u0434\u043e\u043c 3)",
+        "deadline": 1,
+        "floors": "26",
+        "house_material": 1,
+        "finishing_flat": [
+            1
+        ],
+        "payment_method": [
+            3,
+            2,
+            6,
+            4,
+            1,
+            5
+        ],
+        "banks": [
+            3,
+            2
+        ]
+    }
+},
+{
+    "model": "jk_objects.houseofobject",
+    "pk": 3,
+    "fields": {
+        "jk_object": 3,
+        "address": "\u041b\u0435\u043d\u0438\u043d\u0430 81",
+        "deadline": 1,
+        "floors": "20",
+        "house_material": 1,
+        "finishing_flat": [
+            1
+        ],
+        "payment_method": [
+            2,
+            1
+        ],
+        "banks": []
+    }
+},
+{
+    "model": "jk_objects.houseofobject",
+    "pk": 4,
+    "fields": {
+        "jk_object": 5,
+        "address": "\u0414\u0443\u0441\u0438 \u041a\u043e\u0432\u0430\u043b\u044c\u0447\u0443\u043a 248 (\u0441\u0435\u043a\u0446\u0438\u0438 1,2,3)",
+        "deadline": 1,
+        "floors": "19",
+        "house_material": 1,
+        "finishing_flat": [
+            1
+        ],
+        "payment_method": [
+            2,
+            4,
+            1,
+            5
+        ],
+        "banks": [
+            2
+        ]
+    }
+},
+{
+    "model": "jk_objects.houseofobject",
+    "pk": 5,
+    "fields": {
+        "jk_object": 6,
+        "address": "\u042f\u0441\u043d\u044b\u0439 \u0431\u0435\u0440\u0435\u0433 8 (\u0434\u043e\u043c 7)",
+        "deadline": 1,
+        "floors": "26",
+        "house_material": 1,
+        "finishing_flat": [
+            1
+        ],
+        "payment_method": [
+            3,
+            2,
+            6,
+            4,
+            1,
+            5
+        ],
+        "banks": []
+    }
+}
+]

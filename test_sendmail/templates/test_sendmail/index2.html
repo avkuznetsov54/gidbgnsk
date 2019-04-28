@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Отправить Email
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+		<div class="col-12 text-center mt-5">
+			<h3>Отправить Email</h3>
+		</div>
+	</div>
+
+
+			{{message}}
+			<form method="POST" action ="" enctype="multipart/form-data">
+				{% csrf_token %}
+				<br><br>
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					{{email_form.from_email}}
+					{{email_form.to_email}}
+					{{email_form.subject}}
+					{{email_form.attach}}
+				<!--</div>-->
+				<!--<div class="col-md-6">-->
+					{{email_form.message}}
+					<input type ="submit"  name = "send" value = "Отправить" class="btn btn-success">
+					<input type ="reset"  name = "reset" value = "Очистить все поля" class="btn btn-danger">
+				</div>
+
+
+			</div>
+
+			</form>
+
+
+
+</div>
+
+{% endblock %}
