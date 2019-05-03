@@ -1,3 +1,6 @@
+import json
+from datetime import datetime
+
 from django.forms import Form
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -20,28 +23,21 @@ from gen_notices.models import NoticeTemplate
 # from gen_notices.views import fields_notice
 from test_sendmail.forms import EmailForm
 
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
 
 @login_required(login_url='/login/')
 def jkobjects_index(request):
-
-    if request.method == 'POST':
-        not_n = request.POST['search']
-        print('привет')
-
-    search_query = request.GET.get('search', None)
-    # print(search_query)
-    search_query2 = request.GET.get('classbuilding', None)
-    # if search_query == '':
-    #     search_query = None
-    # if search_query2 == '':
-    #     search_query2 = None
-
     classbuilding = ClassBuilding.objects.all()
     jkobjects = JkObject.objects.all()
     count_jkobjects = jkobjects.filter(is_active='True').count()
+
+    search_query = request.GET.get('jkobject', None)
+    search_query2 = request.GET.get('classbuilding', None)
 
     if any((search_query, search_query2)):
         # posts = Post.objects.filter(title__icontains=search_query, body__icontains=search_query)  # AND
@@ -50,16 +46,9 @@ def jkobjects_index(request):
 
         if search_query is not None and search_query != '':
             # jk = JkObject.objects.filter(Q(name__icontains=search_query))
-            jk = jk.filter(Q(name__in=request.GET.getlist('search')))
+            jk = jk.filter(Q(name__in=request.GET.getlist('jkobject')))
         if search_query2 is not None and search_query2 != '':
             jk = jk.filter(Q(class_building__in=request.GET.getlist('classbuilding')))
-
-        # print(request.GET.getlist('classbuilding'))
-        # for value in request.GET.getlist('classbuilding'):
-        #     print(value)
-        #
-        #     if value is not None and value != '':
-        #         jk = jk.filter(Q(class_building=value))
 
     else:
         jk = jkobjects
@@ -90,7 +79,6 @@ def jkobjects_index(request):
         'prev_url': prev_url
     }
 
-    # print(classbuilding.name)
 
     return render(request, 'jk_objects/index.html', context)
 
@@ -171,6 +159,82 @@ def jkobjects_index(request):
 #     queryset = HouseOfObject.objects.all()
 #     context_object_name = 'house_object'
 #     template_name = 'jk_objects/detail.html'
+
+
+def building_search(request):
+    classbuilding = ClassBuilding.objects.all()
+    jkobjects_all = JkObject.objects.all()
+    count_jkobjects = jkobjects_all.filter(is_active='True').count()
+    jkobjects = jkobjects_all
+
+    #######
+    data = dict()
+    if request.method == 'POST':
+        # jkobjects = JkObject.objects.all()
+        data['is_valid'] = True
+
+        # print('пост')
+
+        # custom_decks = request.POST.dict()
+        # print(custom_decks)
+
+        # for key, value in request.POST.items():
+        #     print(key, value)
+
+        # received_json_data = json.loads(request.body.decode("utf-8"))
+        # received_json_data = json.loads(request.POST['data'])
+        # print(received_json_data)
+
+        search_query = request.POST.get('jkobject', None)
+        print(search_query)
+        search_query2 = request.POST.get('classbuilding', None)
+
+        if any((search_query, search_query2)):
+            # posts = Post.objects.filter(title__icontains=search_query, body__icontains=search_query)  # AND
+
+            if search_query is not None and search_query != '':
+                # jkobjects = JkObject.objects.filter(Q(name__icontains=search_query))
+                # jkobjects = jkobjects.filter(Q(name__in=request.GET.getlist('jkobject')))
+                jkobjects = jkobjects.filter(Q(name__in=search_query.split(',')))
+                # print(jkobjects)
+            if search_query2 is not None and search_query2 != '':
+                jkobjects = jkobjects.filter(Q(class_building__in=search_query2.split(',')))
+
+        # else:
+        #     jkobjects = JkObject.objects.all()
+
+        data['html'] = render_to_string('jk_objects/includes/jk_ajax_list_card.html', {'jkobjects': jkobjects}, request=request)
+        return JsonResponse(data)
+
+
+    ########
+
+    # search_query = request.GET.get('jkobject', None)
+    # search_query2 = request.GET.get('classbuilding', None)
+
+    # if any((search_query, search_query2)):
+    #     # posts = Post.objects.filter(title__icontains=search_query, body__icontains=search_query)  # AND
+    #
+    #     if search_query is not None and search_query != '':
+    #         # jk = JkObject.objects.filter(Q(name__icontains=search_query))
+    #         jkobjects = jkobjects.filter(Q(name__in=request.GET.getlist('jkobject')))
+    #     if search_query2 is not None and search_query2 != '':
+    #         jkobjects = jkobjects.filter(Q(class_building__in=request.GET.getlist('classbuilding')))
+
+    if request.method == 'GET':
+
+
+        context = {
+            'classbuilding': classbuilding,
+            'count_jkobjects': count_jkobjects,
+            'jkobjects_all': jkobjects_all,
+            'jkobjects': jkobjects
+        }
+
+        return render(request, 'jk_objects/index2.html', context)
+        # data['html'] = render_to_string('jk_objects/includes/jk_t.html', {'jkobjects': jkobjects}, request=request)
+        # return JsonResponse(data)
+
 
 
 class JkobjectsDetailView(LoginRequiredMixin, DetailView):

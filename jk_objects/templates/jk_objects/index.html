@@ -20,10 +20,11 @@
         <div class="col-12 mb-4">
             <div class="panel-main">
             <form class="search-panel form-inline my-2 my-lg-0" action="{% url 'jk_objects:jkobjects_index_url' %}">
+
               <!--<input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name="search">-->
               <!--<input class="form-control mr-sm-2" type="search" placeholder="Body" aria-label="Search" name="search2">-->
 
-                <select name="search" class="search-multiple js-example-basic-multiple" multiple="multiple">
+                <select name="jkobject" class="search-multiple js-example-basic-multiple" multiple="multiple">
                     <!--<option value="" selected=""></option>-->
                     {% for jk in jkobjects %}
                          <option value="{{ jk.name }}">{{ jk.name }}</option>

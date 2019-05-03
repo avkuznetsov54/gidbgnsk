@@ -7,10 +7,10 @@
 <div class="modal-body">
 
 <form method="POST" enctype="multipart/form-data" data-url="{% url 'gen_notice:notice_create' %}" class="create-form">
-
+    {% csrf_token %}
     <div class="wr-form">
 
-    {% csrf_token %}
+
 
         <input type="hidden" name="notice_templ" value="{{ notice_templ }}">
 
